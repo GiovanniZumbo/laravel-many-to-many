@@ -10,6 +10,12 @@
                     <img src="{{ $project->image_url }}" class="card-img-top h-75 object-fit-contain" alt="...">
                     <div class="card-body">
                         <h4>{{ $project->title }}</h4>
+                        <div class="mb-2">
+                            @forelse ($project->technologies as $technology)
+                                <span class="badge text-bg-dark fs-6">{{ $technology->name }}</span>
+                            @empty
+                            @endforelse
+                        </div>
                         <p class="card-text">{{ $project->description }}</p>
                     </div>
                 </div>

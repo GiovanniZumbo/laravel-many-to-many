@@ -16,7 +16,6 @@
                             <div class="mb-2">
                                 @forelse ($project->technologies as $technology)
                                     <span class="badge text-bg-dark fs-6">{{ $technology->name }}</span>
-
                                 @empty
                                 @endforelse
                             </div>
