@@ -33,6 +33,19 @@
                     </div>
 
                     <div class="mb-4">
+                        <label for="technology" class="form-label">Type</label>
+                        <input type="checkbox" name="technology_id" id="technology" class="form-control">
+                        @foreach ($types as $type)
+                            <option value="{{ $type->id }}">{{ $type->name }}
+                            </option>
+                        @endforeach
+
+                        @error('type')
+                            {{ $message }}
+                        @enderror
+                    </div>
+
+                    <div class="mb-4">
                         <label for="description" class="form-label">Description</label>
                         <textarea type="text" class="form-control" id="description" name="description"
                             value="{{ old('description'), $project->description }}"></textarea>
