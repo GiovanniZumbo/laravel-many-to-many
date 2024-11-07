@@ -33,16 +33,16 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="technology" class="form-label">Type</label>
-                        <input type="checkbox" name="technology_id" id="technology" class="form-control">
-                        @foreach ($types as $type)
-                            <option value="{{ $type->id }}">{{ $type->name }}
-                            </option>
+                        <label for="project-techs" class="form-label">Technologies</label>
+                        @foreach ($technologies as $technology)
+                            <div class="form-check">
+                                <input type="checkbox" name="technologies[]" id="project-techs" class="form-check-input"
+                                    value="{{ $technology->id }}">
+                                <label type="checkbox" name="technologies[]" id="project-techs" class="form-check-label">
+                                    {{ $technology->name }}
+                                </label>
+                            </div>
                         @endforeach
-
-                        @error('type')
-                            {{ $message }}
-                        @enderror
                     </div>
 
                     <div class="mb-4">
