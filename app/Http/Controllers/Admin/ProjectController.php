@@ -16,21 +16,18 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Project $project)
+    public function index()
     {
         $projects = Project::all();
-        return view('admin.projects.index', compact('projects', 'project',));
+        return view('admin.projects.index', compact('projects'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Project $project)
     {
         $projects = Project::all();
         $types = Type::all();
         $technologies = Technology::all();
-        return view('admin.projects.create', compact('project', 'types', 'technologies'));
+        return view('admin.projects.create', compact("projects", 'project', 'types', 'technologies'));
     }
 
     /**
@@ -75,14 +72,15 @@ class ProjectController extends Controller
         $project->update($data);
         $project->technologies()->sync($data["technologies"]);
 
-        return redirect()->route("admin.projects.show", $project);
+        return redirect()->route("admin.projects.show", compact($project));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index');
     }
 }

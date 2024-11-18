@@ -27,7 +27,7 @@ class StoreProjectRequest extends FormRequest
             "technologies" => ['required', "array", "exists:technologies,id"],
             "description" => ["string", "min:5", "nullable"],
             "image_url" => ["url"],
-            "git_url" => ["required", "url"],
+            "git_url" => ["required", "url"]
         ];
     }
 }

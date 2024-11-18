@@ -6,9 +6,9 @@
 
         <div class="row">
             <div class="col-8">
-                <form action="{{ route('admin.projects.store', $project) }}" method="POST" class="text-light">
-                    @csrf
+                <form action="@yield('form-action')" method="POST" class="text-light">
                     @yield('form-method')
+                    @csrf
 
                     <div class="mb-4">
                         <label for="title" class="form-label">Title</label>
@@ -43,6 +43,7 @@
                                 </label>
                             </div>
                         @endforeach
+
                     </div>
 
                     <div class="mb-4">

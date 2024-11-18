@@ -21,7 +21,18 @@
                             </div>
                             <h5>{{ $project->type->name }}</h5>
                             <p class="card-text">{{ $project->description }}</p>
-                            @include('partials.buttons')
+
+                            <div class="d-flex">
+                                <a href="{{ route('guest.projects.show', $project->id) }}"
+                                    class="btn btn-success me-1">Show</a>
+                                <a href="{{ route('admin.projects.edit', $project->id) }}"
+                                    class="btn btn-warning me-1">Edit</a>
+                                <form action="{{ route('admin.projects.delete', $project->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger me-1">Elimina</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

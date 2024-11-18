@@ -5,7 +5,7 @@
 @endsection
 
 @section('form-action')
-    'admin.projects.store'
+    {{ route('admin.projects.create', $project) }}
 @endsection
 
 @section('form-method')
